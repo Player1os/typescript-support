@@ -1,0 +1,34 @@
+{
+  "name": "@player1os/js-npm-package",
+  "version": "0.0.0",
+  "description": "A base project from which npm packages written in javascript can be derived",
+  "private": false,
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org"
+  },
+  "main": "lib/index.js",
+  "types": "@types/index.d.ts",
+  "scripts": {
+    "preversion": "support-preversion",
+    "postversion": "support-postversion",
+    "test": "support-test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Player1os/js-npm-package.git"
+  },
+  "keywords": [
+    "js",
+    "npm",
+    "package"
+  ],
+  "author": "Osama Hassanein <player1os@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Player1os/js-npm-package/issues"
+  },
+  "homepage": "https://github.com/Player1os/js-npm-package/#readme",
+  "devDependencies": {
+    "@player1os/js-npm-package-support": "^1.0.3"
+  }
+}
