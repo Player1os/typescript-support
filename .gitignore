@@ -1,3 +1,6 @@
+# Special test files.
+test/tmp
+
 # NPM generated files.
 node_modules
 npm-debug.log*

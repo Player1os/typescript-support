@@ -1,0 +1,7 @@
+{
+	"import": ".../src/build.js",
+	"arr": ["require", ".../src/build.js"],
+	"require": [
+		".../src/build.js", 8
+	]
+}
