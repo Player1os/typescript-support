@@ -23,7 +23,7 @@
     "package"
   ],
   "author": "Osama Hassanein <player1os@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Player1os/js-npm-package/issues"
   },
