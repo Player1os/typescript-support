@@ -1,7 +1,7 @@
 {
-  "name": "@player1os/js-npm-package-template",
-  "version": "0.0.0",
-  "description": "A template project from which NPM packages written in Javascript can be derived",
+  "name": "@player1os/typescript-support",
+  "version": "1.3.0",
+  "description": "A set of common utilities and scripts to be used in the development of projects written in Typescript",
   "main": "lib/index.js",
   "types": "@types/index.d.ts",
   "scripts": {
@@ -13,26 +13,45 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Player1os/js-npm-package-template.git"
+    "url": "git+https://github.com/Player1os/typescript-support.git"
   },
   "keywords": [
-    "javascript",
-    "npm",
-    "package",
-    "template"
+    "typescript",
+    "tslint",
+    "tsconfig",
+    "jest",
+    "configuration",
+    "bluebird",
+    "compiler",
+    "postprocess",
+    "module",
+    "path",
+    "rewrite",
+    "newline",
+    "character",
+    "normalize"
   ],
   "author": "Osama Hassanein <player1os@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Player1os/js-npm-package-template/issues"
+    "url": "https://github.com/Player1os/typescript-support/issues"
   },
-  "homepage": "https://github.com/Player1os/js-npm-package-template/#readme",
+  "homepage": "https://github.com/Player1os/typescript-support/#readme",
   "engines": {
     "node": "^10.6.0",
     "npm": "^6.1.0"
   },
+  "dependencies": {
+    "@types/bluebird-global": "^3.5.5",
+    "@types/jest": "^23.1.4",
+    "chokidar": "^2.0.4",
+    "escape-string-regexp": "^1.0.5",
+    "find-root": "^1.1.0",
+    "recursive-readdir-sync": "^1.0.6"
+  },
   "devDependencies": {
     "@player1os/javascript-support": "^1.3.10",
+    "fs-extra": "^6.0.1",
     "jest": "^23.5.0"
   },
   "jest": {
