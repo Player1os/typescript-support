@@ -28,7 +28,11 @@
     "url": "https://github.com/Player1os/js-npm-package/issues"
   },
   "homepage": "https://github.com/Player1os/js-npm-package/#readme",
+  "engines": {
+    "node": "^10.6.0",
+    "npm": "^6.1.0"
+  },
   "devDependencies": {
-    "@player1os/js-npm-package-support": "^1.0.3"
+    "@player1os/js-npm-package-support": "^1.1.0"
   }
 }
