@@ -1,7 +1,7 @@
 {
   "name": "@player1os/js-npm-package",
   "version": "0.0.0",
-  "description": "A base project from which npm packages written in javascript can be derived",
+  "description": "A template project from which NPM packages written in Javascript can be derived",
   "private": false,
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
@@ -13,16 +13,17 @@
     "postversion": "support-require @player1os/javascript-support/lib/version/post",
     "update-base-create": "support-require @player1os/javascript-support/lib/update_base/create",
     "update-base-load": "support-require @player1os/javascript-support/lib/update_base/load",
-    "test": "support-require @player1os/js-npm-package/lib/test"
+    "test": "support-require @player1os/js-npm-package-support/lib/test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Player1os/js-npm-package.git"
   },
   "keywords": [
-    "js",
+    "javascript",
     "npm",
-    "package"
+    "package",
+    "template"
   ],
   "author": "Osama Hassanein <player1os@gmail.com>",
   "license": "MIT",
@@ -35,6 +36,6 @@
     "npm": "^6.1.0"
   },
   "devDependencies": {
-    "@player1os/js-npm-package-support": "^1.1.0"
+    "@player1os/js-npm-package-support": "^1.1.1"
   }
 }

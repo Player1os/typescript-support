@@ -1,4 +1,4 @@
-// This is a placeholder for the tests' implemenation.
+// This is a placeholder for the tests' implementation.
 
 // Load npm modules.
 const bluebird = require('bluebird')
