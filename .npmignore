@@ -1,4 +1,4 @@
 test
 .eslintrc.json
 .gitignore
-README.md
+.travis.yml
