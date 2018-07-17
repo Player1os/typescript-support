@@ -9,9 +9,11 @@
   "main": "lib/index.js",
   "types": "@types/index.d.ts",
   "scripts": {
-    "preversion": "support-preversion",
-    "postversion": "support-postversion",
-    "test": "support-test"
+    "preversion": "support-require @player1os/javascript-support/lib/version/pre",
+    "postversion": "support-require @player1os/javascript-support/lib/version/post",
+    "update-base-create": "support-require @player1os/javascript-support/lib/update_base/create",
+    "update-base-load": "support-require @player1os/javascript-support/lib/update_base/load",
+    "test": "support-require @player1os/js-npm-package/lib/test"
   },
   "repository": {
     "type": "git",
