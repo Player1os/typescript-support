@@ -1,11 +1,8 @@
 // This is a placeholder for the tests' implementation.
 
-// Load npm modules.
-const bluebird = require('bluebird')
-
-// Set the global promise object to the bluebird implementation.
+// Load the test runtime.
 beforeAll(() => {
-	global.Promise = bluebird
+	require('@player1os/javascript-support/lib/runtime/jest')
 })
 
 test('Placeholder functional test', () => {

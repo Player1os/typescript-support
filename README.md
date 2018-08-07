@@ -1,9 +1,9 @@
-# JS NPM Package
+# JS NPM Package Template
 
-[![License](https://img.shields.io/github/license/Player1os/js-npm-package.svg)](https://github.com/Player1os/js-npm-package/blob/master/LICENSE)
-[![NodeJS version](https://img.shields.io/node/v/@player1os/js-npm-package.svg?label=node%20version)](https://nodejs.org/dist/v10.6.0/)
-[![GitHub tag](https://img.shields.io/github/tag/Player1os/js-npm-package.svg?label=version)](https://github.com/Player1os/js-npm-package/releases)
-[![Build Status](https://travis-ci.org/Player1os/js-npm-package.svg?branch=master)](https://travis-ci.org/Player1os/js-npm-package)
+[![License](https://img.shields.io/github/license/Player1os/js-npm-package-template.svg)](https://github.com/Player1os/js-npm-package-template/blob/master/LICENSE)
+[![NodeJS version](https://img.shields.io/node/v/@player1os/js-npm-package-template.svg?label=node%20version)](https://nodejs.org/dist/v10.6.0/)
+[![GitHub tag](https://img.shields.io/github/tag/Player1os/js-npm-package-template.svg?label=version)](https://github.com/Player1os/js-npm-package-template/releases)
+[![Build Status](https://travis-ci.org/Player1os/js-npm-package-template.svg?branch=master)](https://travis-ci.org/Player1os/js-npm-package-template)
 
 A template project from which NPM packages written in Javascript can be derived.
 
@@ -49,13 +49,13 @@ Follow these instructions to create a new project based on this template:
 1. Add the template's `origin` remote to the newly created project as an additional remote repository named `base`, by running:
 
 	```
-	git remote add base git@github.com:Player1os/js-npm-package.git
+	git remote add base git@github.com:Player1os/js-npm-package-template.git
 	```
 
 	Alternatively, we can use a modified version of the URL, if the ssh connection needs to be tunneled, by running:
 
 	```
-	git remote add base ssh://git@ssh.github.com:443/Player1os/js-npm-package.git
+	git remote add base ssh://git@ssh.github.com:443/Player1os/js-npm-package-template.git
 	```
 
 1. Pull the latest commits of the `master` branch from the newly set `base` remote, by running:
@@ -107,13 +107,13 @@ Assuming we have already [created a new project](#creating-a-new-project) as des
 1. Add the template's `origin` remote to the project as an additional remote repository named `base`, by running:
 
 	```
-	git remote add base git@github.com:Player1os/js-npm-package.git
+	git remote add base git@github.com:Player1os/js-npm-package-template.git
 	```
 
 	Alternatively, we can use a modified version of the URL, if the ssh connection needs to be tunneled, by running:
 
 	```
-	git remote add base ssh://git@ssh.github.com:443/Player1os/js-npm-package.git
+	git remote add base ssh://git@ssh.github.com:443/Player1os/js-npm-package-template.git
 	```
 
 1. Fetch the newest version of the `base` repository's branches, by running:

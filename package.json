@@ -1,23 +1,19 @@
 {
-  "name": "@player1os/js-npm-package",
+  "name": "@player1os/js-npm-package-template",
   "version": "0.0.0",
   "description": "A template project from which NPM packages written in Javascript can be derived",
-  "private": false,
-  "publishConfig": {
-    "registry": "http://registry.npmjs.org"
-  },
   "main": "lib/index.js",
   "types": "@types/index.d.ts",
   "scripts": {
-    "preversion": "support-require @player1os/javascript-support/lib/version/pre",
-    "postversion": "support-require @player1os/javascript-support/lib/version/post",
-    "update-base-create": "support-require @player1os/javascript-support/lib/update_base/create",
-    "update-base-load": "support-require @player1os/javascript-support/lib/update_base/load",
-    "test": "support-require @player1os/js-npm-package-support/lib/test"
+    "preversion": "support-require @player1os/javascript-support/lib/task/preversion",
+    "postversion": "support-require @player1os/javascript-support/lib/task/postversion",
+    "update-base-create": "support-require @player1os/javascript-support/lib/task/update_base/create",
+    "update-base-load": "support-require @player1os/javascript-support/lib/task/update_base/load",
+    "test": "eslint . && jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Player1os/js-npm-package.git"
+    "url": "git+https://github.com/Player1os/js-npm-package-template.git"
   },
   "keywords": [
     "javascript",
@@ -28,14 +24,21 @@
   "author": "Osama Hassanein <player1os@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Player1os/js-npm-package/issues"
+    "url": "https://github.com/Player1os/js-npm-package-template/issues"
   },
-  "homepage": "https://github.com/Player1os/js-npm-package/#readme",
+  "homepage": "https://github.com/Player1os/js-npm-package-template/#readme",
   "engines": {
     "node": "^10.6.0",
     "npm": "^6.1.0"
   },
   "devDependencies": {
-    "@player1os/js-npm-package-support": "^1.1.1"
+    "@player1os/javascript-support": "^1.3.4",
+    "jest": "^23.4.2"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^\\.\\.\\.(.*)": "<rootDir>$1"
+    },
+    "testEnvironment": "node"
   }
 }
