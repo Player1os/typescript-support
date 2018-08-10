@@ -9,7 +9,7 @@
 		"noImplicitUseStrict": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"sourceMap": true,
+		"inlineSourceMap": true,
 		"strictNullChecks": true,
 		"target": "es2017"
 	}
