@@ -1,5 +1,5 @@
 // Load local modules.
-const postProcessor = require('../lib/post_processor')
+const postProcessor = require('.../lib/task/build/post_processor')
 
 // Load npm modules.
 const fsExtra = require('fs-extra')
@@ -17,30 +17,36 @@ const testFileNames = [
 // Declare the map of file names to file lines.
 const fileNameToLinesMap = new Map()
 
-beforeAll(() => {
+beforeAll(async () => {
+	// Load the test runtime.
+	require('@player1os/javascript-support/lib/runtime/jest')
+
 	// Determine the temporary file paths.
 	const temporaryFilePathsMap = new Map(testFileNames.map((testFileName) => {
-		return [testFileName, path.join(__dirname, 'tmp', testFileName)]
+		return [testFileName, path.join('test', 'tmp', testFileName)]
 	}))
 
 	// Create a temporary copy for each test file.
 	for (const [testFileName, temporaryFilePath] of temporaryFilePathsMap) {
-		fsExtra.copySync(path.join(__dirname, testFileName), temporaryFilePath)
+		await fsExtra.copy(path.join(__dirname, testFileName), temporaryFilePath)
 	}
 
-	// Run the postprocessor on the temporary files.
-	postProcessor(path.join('test', 'tmp'), '.../src/', '.js')
-	postProcessor(path.join('test', 'tmp'), '.../src/', '.ts')
+	// Run the post-processor on the temporary files.
+	await Promise.all([
+		postProcessor(path.join('test', 'tmp'), '.js'),
+		postProcessor(path.join('test', 'tmp'), '.ts'),
+	])
 
 	// Populate the file name to lines map.
 	for (const [testFileName, temporaryFilePath] of temporaryFilePathsMap) {
-		fileNameToLinesMap.set(testFileName, fsExtra.readFileSync(temporaryFilePath, 'utf-8').split('\n'))
+		const fileContents = await fsExtra.readFile(temporaryFilePath, 'utf-8')
+		fileNameToLinesMap.set(testFileName, fileContents.split('\n'))
 	}
 })
 
-afterAll(() => {
+afterAll(async () => {
 	// Remove the temporary directory with all of its contents.
-	fsExtra.removeSync(path.join(__dirname, 'tmp'))
+	await fsExtra.remove(path.join('test', 'tmp'))
 })
 
 describe('Verify build.js', () => {
@@ -62,34 +68,34 @@ describe('Verify build.js', () => {
 		expect(fileLines[5]).toBe("const object2 = require('./nested/object')")
 	})
 
-	test('Destructured require', () => {
+	test('De-structured require', () => {
 		expect(fileLines[7]).toBe("const { array, things: items } = require('./array')")
 	})
 
-	test('Multiline destructured require', () => {
+	test('Multiline de-structured require', () => {
 		expect(fileLines[8]).toBe('const {')
 		expect(fileLines[9]).toBe('\ttoday,')
-		expect(fileLines[10]).toBe('\tisMutiline,')
+		expect(fileLines[10]).toBe('\tisMultiline,')
 		expect(fileLines[11]).toBe("} = require('./date')")
 	})
 
-	test('Unnaffected line (export)', () => {
+	test('Unaffected line (export)', () => {
 		expect(fileLines[13]).toBe('module.exports = { today, array }')
 	})
 
-	test('Unnaffected line (named module)', () => {
+	test('Unaffected line (named module)', () => {
 		expect(fileLines[15]).toBe("require('primitive1')")
 	})
 
-	test('Unnaffected line (named module with double quotes)', () => {
+	test('Unaffected line (named module with double quotes)', () => {
 		expect(fileLines[16]).toBe('require("primitive2")')
 	})
 
-	test('Unnaffected line (relative module)', () => {
+	test('Unaffected line (relative module)', () => {
 		expect(fileLines[17]).toBe("require('./relative1')")
 	})
 
-	test('Unnaffected line (relative module with double quotes)', () => {
+	test('Unaffected line (relative module with double quotes)', () => {
 		expect(fileLines[18]).toBe('require("../../relative2")')
 	})
 
@@ -97,15 +103,15 @@ describe('Verify build.js', () => {
 		expect(fileLines[20]).toBe('const { default: double } = require("./double")')
 	})
 
-	test('Unnaffected line (similar prefix)', () => {
+	test('Unaffected line (similar prefix)', () => {
 		expect(fileLines[22]).toBe("require('.../almost')")
 	})
 
-	test('Unnaffected line (export single property)', () => {
-		expect(fileLines[24]).toBe('module.exports.isMutiline = isMutiline')
+	test('Unaffected line (export single property)', () => {
+		expect(fileLines[24]).toBe('module.exports.isMultiline = isMultiline')
 	})
 
-	test('Unnaffected line (console.log with matching string)', () => {
+	test('Unaffected line (console.log with matching string)', () => {
 		expect(fileLines[26]).toBe("console.log('.../src/well_this/should_stay', 'the same')")
 	})
 })
@@ -129,34 +135,34 @@ describe('Verify definition.d.ts', () => {
 		expect(fileLines[3]).toBe("import object2 from './nested/object'")
 	})
 
-	test('Destructured import', () => {
+	test('De-structured import', () => {
 		expect(fileLines[5]).toBe("import { array, things as items } from './array'")
 	})
 
-	test('Multiline destructured import', () => {
+	test('Multiline de-structured import', () => {
 		expect(fileLines[6]).toBe('import {')
 		expect(fileLines[7]).toBe('\ttoday,')
-		expect(fileLines[8]).toBe('\tisMutiline,')
+		expect(fileLines[8]).toBe('\tisMultiline,')
 		expect(fileLines[9]).toBe("} from './date'")
 	})
 
-	test('Unnaffected line (export)', () => {
+	test('Unaffected line (export)', () => {
 		expect(fileLines[11]).toBe('export { today, array }')
 	})
 
-	test('Unnaffected line (named module)', () => {
+	test('Unaffected line (named module)', () => {
 		expect(fileLines[13]).toBe("import 'primitive1'")
 	})
 
-	test('Unnaffected line (named module with double quotes)', () => {
+	test('Unaffected line (named module with double quotes)', () => {
 		expect(fileLines[14]).toBe('import "primitive2"')
 	})
 
-	test('Unnaffected line (relative module)', () => {
+	test('Unaffected line (relative module)', () => {
 		expect(fileLines[15]).toBe("import './relative1'")
 	})
 
-	test('Unnaffected line (relative module with double quotes)', () => {
+	test('Unaffected line (relative module with double quotes)', () => {
 		expect(fileLines[16]).toBe('import "../../relative2"')
 	})
 
@@ -164,18 +170,18 @@ describe('Verify definition.d.ts', () => {
 		expect(fileLines[18]).toBe('import double from "./double"')
 	})
 
-	test('Unnaffected line (similar prefix)', () => {
+	test('Unaffected line (similar prefix)', () => {
 		expect(fileLines[20]).toBe("import '.../almost'")
 	})
 
-	test('Unnaffected line (multiline export)', () => {
+	test('Unaffected line (multiline export)', () => {
 		expect(fileLines[22]).toBe('export {')
-		expect(fileLines[23]).toBe('\tisMutiline')
+		expect(fileLines[23]).toBe('\tisMultiline')
 		expect(fileLines[24]).toBe('}')
 	})
 })
 
-test('Vefiry not_build.json', () => {
+test('Verify not_build.json', () => {
 	const fileName = 'not_build.json'
 
 	const fileLines = fsExtra.readFileSync(path.join(__dirname, fileName), 'utf-8').split('\n')
