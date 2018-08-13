@@ -32,8 +32,8 @@
     "npm": "^6.1.0"
   },
   "devDependencies": {
-    "@player1os/javascript-support": "^1.3.5",
-    "jest": "^23.4.2"
+    "@player1os/javascript-support": "^1.3.6",
+    "jest": "^23.5.0"
   },
   "jest": {
     "moduleNameMapper": {
