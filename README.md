@@ -1,9 +1,7 @@
 # JS NPM Package Template
 
 [![License](https://img.shields.io/github/license/Player1os/js-npm-package-template.svg)](https://github.com/Player1os/js-npm-package-template/blob/master/LICENSE)
-[![NodeJS version](https://img.shields.io/node/v/@player1os/js-npm-package-template.svg?label=node%20version)](https://nodejs.org/dist/v10.6.0/)
-[![GitHub tag](https://img.shields.io/github/tag/Player1os/js-npm-package-template.svg?label=version)](https://github.com/Player1os/js-npm-package-template/releases)
-[![Build Status](https://travis-ci.org/Player1os/js-npm-package-template.svg?branch=master)](https://travis-ci.org/Player1os/js-npm-package-template)
+[![NodeJS version](https://img.shields.io/badge/node%20version-v10.6.0-brightgreen.svg)](https://nodejs.org/dist/v10.6.0/)
 
 A template project from which NPM packages written in Javascript can be derived.
 
