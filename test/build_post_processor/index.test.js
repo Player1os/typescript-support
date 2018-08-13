@@ -1,5 +1,5 @@
 // Load local modules.
-const postProcessor = require('.../lib/task/build/post_processor')
+const postProcessor = require('.../lib/task/_build/post_processor')
 
 // Load npm modules.
 const fsExtra = require('fs-extra')
