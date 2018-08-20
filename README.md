@@ -3,7 +3,8 @@
 [![License](https://img.shields.io/github/license/Player1os/typescript-support.svg)](https://github.com/Player1os/typescript-support/blob/master/LICENSE)
 [![NodeJS version](https://img.shields.io/node/v/@player1os/typescript-support.svg?label=node%20version)](https://nodejs.org/dist/v10.6.0/)
 [![GitHub tag](https://img.shields.io/github/tag/Player1os/typescript-support.svg?label=version)](https://github.com/Player1os/typescript-support/releases)
-[![Build Status](https://travis-ci.org/Player1os/typescript-support.svg?branch=master)](https://travis-ci.org/Player1os/typescript-support) [![Greenkeeper badge](https://badges.greenkeeper.io/Player1os/typescript-support.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/Player1os/typescript-support.svg?branch=master)](https://travis-ci.org/Player1os/typescript-support)
+[![Greenkeeper badge](https://badges.greenkeeper.io/Player1os/typescript-support.svg)](https://greenkeeper.io/)
 
 A set of common utilities and scripts to be used in the development of projects written in Typescript.
 
