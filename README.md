@@ -2,6 +2,7 @@
 
 [![License](https://img.shields.io/github/license/Player1os/js-npm-package-template.svg)](https://github.com/Player1os/js-npm-package-template/blob/master/LICENSE)
 [![NodeJS version](https://img.shields.io/badge/node%20version-v10.6.0-brightgreen.svg)](https://nodejs.org/dist/v10.6.0/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/Player1os/js-npm-package-template.svg)](https://greenkeeper.io/)
 
 A template project from which NPM packages written in Javascript can be derived.
 
