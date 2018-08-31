@@ -7,7 +7,7 @@
 		"program": "${workspaceFolder}\\node_modules\\jest\\bin\\jest",
 		"args": [
 			"-c", "${workspaceFolder}\\package.json",
-			"${relativeFile}"
+			"-i", "${relativeFile}"
 		],
 		"runtimeArgs": ["--nolazy"],
 		"cwd": "${workspaceRoot}",
